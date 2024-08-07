@@ -7,7 +7,7 @@ function App() {
 
   function submit(event){
     event.preventDefault();
-    let todo = event.target.todo.value;
+    let todo = event.target.todo.value.trim();
     console.log(todo);
     if(!todolist.includes(todo) && todo != ""){
         let finaltodo = [...todolist,todo]
@@ -36,7 +36,7 @@ function App() {
       </form>
       
       {todolist.map((v,i)=>{
-         return <div key={i} className='list'> <h1 key={i}>{v} <span index={i} onClick={()=>del(i)}>&times;</span></h1></div>
+         return <div key={i} className='list'> <h1 >{v} <span index={i} onClick={()=>del(i)}>&times;</span></h1></div>
       })}
       
       </div>
