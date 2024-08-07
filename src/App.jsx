@@ -8,12 +8,16 @@ function App() {
   function submit(event){
     event.preventDefault();
     let todo = event.target.todo.value;
-    if(!todolist.includes(todo)){
+    console.log(todo);
+    if(!todolist.includes(todo) && todo != ""){
         let finaltodo = [...todolist,todo]
         setTodolist(finaltodo)
     }
+    else if( todo == ""){
+      alert("Please add something")
+    }
     else{
-      alert("Already exists")
+      alert("Already exists");
     }
   }
 
@@ -32,7 +36,7 @@ function App() {
       </form>
       
       {todolist.map((v,i)=>{
-         return <div className='list'> <h1 key={i}>{v} <span index={i} onClick={()=>del(i)}>&times;</span></h1></div>
+         return <div key={i} className='list'> <h1 key={i}>{v} <span index={i} onClick={()=>del(i)}>&times;</span></h1></div>
       })}
       
       </div>
